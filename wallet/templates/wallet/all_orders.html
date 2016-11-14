@@ -1,0 +1,107 @@
+{% load staticfiles %}
+<title>{% block title %}Transactions{% endblock %}</title>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+{% include 'wallet/menu_base.html' %}
+<div class="footer-top"  style="margin: 100px;">
+<h3 id="form"><i><img src="../../static/wallet/images/userr.png" alt=" " /></i>&nbsp;&nbsp;{{ user.username.upper }}</h3>
+        {% if recharges %}
+<h3 style="text-align: center;font-size: 50px">YOUR ORDERS</h3>
+    <div class="row" style="margin-left: 180px;" >
+<div class="col-md-3">
+    <h3>MOBILE</h3>
+        {% for recharge in recharges %}
+         <h4>   {{ recharge.phone_number }}</h4><br>
+        {% endfor %}
+
+    </div>
+<div class="col-md-4">
+    <h3>RECHARGE AMOUNT</h3>
+        {% for recharge in recharges %}
+          <h4 style="text-align: center;"> Rs. {{ recharge.plan }}</h4><br>
+        {% endfor %}
+
+    </div>
+<div class="col-md-3">
+<h3 style="text-align: center">DATE</h3>
+        {% for recharge in recharges %}
+           <h4>{{ recharge.timestamp }}</h4><br>
+        {% endfor %}
+
+    </div>
+  </div>
+        {% else %}
+    <h3 style="text-align: center;font-size: 45px">NO ORDERS PLACED</h3>
+{% endif %}
+</div>
+    <div class="footer-top"  style="margin: 100px;">
+    <h3 style="text-align: center;font-size: 50px">TRANSFER HISTORY</h3>
+
+
+
+        {% if transfers %}
+    <div class="row" style="margin-left: 180px;" >
+<div class="col-md-3">
+    <h3>MOBILE NO</h3>
+        {% for transfer in transfers %}
+         <h4>   {{ transfer.phone_number }}</h4><br>
+        {% endfor %}
+
+    </div>
+<div class="col-md-4">
+    <h3>TRANSFER AMOUNT</h3>
+        {% for transfer in transfers %}
+          <h4 style="text-align: center;"> Rs. {{ transfer.transfer_amount }}</h4><br>
+        {% endfor %}
+
+    </div>
+<div class="col-md-3">
+<h3 style="text-align: center">DATE</h3>
+        {% for transfer in transfers %}
+           <h4>{{ transfer.timestamp}}</h4><br>
+        {% endfor %}
+
+    </div>
+  </div>
+        {% else %}
+    <h3 style="text-align: center;font-size: 30px;color: darkgray">NO TRANSFERS MADE</h3>
+{% endif %}
+</div>
+<!-------------------------------------Received---------------------------->
+<div class="footer-top"  style="margin: 100px;">
+<h3 style="text-align: center;font-size: 50px">RECEIVED</h3>
+
+        {% if recs %}
+    <div class="row" style="margin-left: 180px;" >
+<div class="col-md-3">
+    <h3>SENDER</h3>
+        {% for rec in recs %}
+         <h4>   {{ rec.rec_name }}</h4><br>
+        {% endfor %}
+
+    </div>
+<div class="col-md-4">
+    <h3 style="text-align: center"> AMOUNT</h3>
+        {% for rec in recs %}
+          <h4 style="text-align: center;"> Rs. {{ rec.rec_amount }}</h4><br>
+        {% endfor %}
+
+    </div>
+<div class="col-md-3">
+<h3 style="text-align: center">DATE</h3>
+        {% for rec in recs %}
+           <h4>{{ rec.timestamp }}</h4><br>
+        {% endfor %}
+
+    </div>
+  </div>
+        {% else %}
+    <h3 style="text-align: center;font-size: 30px;color: darkgray">NO HISTORY AVAILABLE</h3>
+{% endif %}
+</div>
+
+
+{% include 'wallet/base_bottom.html' %}
+{% endblock %}

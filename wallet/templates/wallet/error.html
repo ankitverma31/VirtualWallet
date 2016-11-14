@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<title>{% block title %}Error{% endblock %}</title>
+
+<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+{% include 'wallet/menu_base.html' %}
+        <div class="footer-top"  style="margin: 100px;">
+
+<h3 style="font-size: 30px;text-align: center"><img class="img-thumbnail"  src="../../static/wallet/images/sim.jpg" alt=" " /></h3>
+   <!--     <h3 style="text-align: center">ONE DOES NOT SIMPLY TRANSFER MONEY TO HIS OWN NUMBER</h3>
+   -->
+        </div>
+{% include 'wallet/base_bottom.html' %}
+{% endblock %}

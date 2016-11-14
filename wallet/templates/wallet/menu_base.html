@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+<ul class='navi'>
+   <li class='navig'><a id="hd" href="{% url "wallet:index" %}"><i><img src="../../static/wallet/images/iconlogo.png" alt=" " /></i>VIRTUAL WALLET</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:recharge" %}">RECHARGE</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:my_wallet" %}">MY WALLET</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:transfer_balance" %}">TRANSFER</a></li>
+    <li class='navig'><a id="md" href=" {% url 'wallet:all_orders'  %}">TRANSACTIONS</a></li>
+    <li class='navig'><a id="md" href="{% url 'wallet:logout_user' %}">LOGOUT</a></li>
+    <li class='navig'><a id="md" href="{% url "wallet:my_wallet" %}"><i><img src="../../static/wallet/images/userr.png" alt=" " /></i>&nbsp;&nbsp;{{ user.username.upper }}</a></li>
+</ul>
+{% endblock %}

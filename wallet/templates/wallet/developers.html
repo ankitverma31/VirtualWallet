@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<title>{% block title %}Developers{% endblock %}</title>
+
+<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+{% include 'wallet/unsigned_menu.html' %}
+    <div class="footer-top"  style="margin: 100px;">
+    <h3 id="form">DEVELOPERS</h3>
+    <div class="row" style="margin-left: 50px; margin-right: 50px;">
+<h3 style="font-size: 30px;text-align: center"><img class="img-circle" width="142" height="142" src="../../static/wallet/images/ankit.png" alt=" " /><br>ANKIT VERMA</h3>
+<div style="margin-right : 20px; float:left;margin-left: 50px">
+        <h3 style="font-size: 30px;text-align: left;margin-left: 100px"><img style="margin-left: 45px" class="img-circle" width="142" height="142" src="../../static/wallet/images/rohit.png" alt=" " /><br>ROHIT NAHATA</h3>
+</div>
+    <div style="float:left;margin-left: 300px">
+    <h3 style="font-size: 30px;text-align: right;margin-right: 100px"><img style="margin-right: 50px;" class="img-circle" width="142" height="142" src="../../static/wallet/images/mihir.png" alt=" " /><br>MIHIR VARATHA</h3>
+</div>
+
+        </div>
+        </div>
+        {% include 'wallet/base_bottom.html' %}
+{% endblock %}

@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+<title>{% block title %}Add Profile Details{% endblock %}</title>
+{% block body %}
+{% include 'wallet/menu_base.html' %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 id="form">Add Profile Details</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'wallet/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>What is Virtual Wallet?</h3>
+                    <p>Virtual wallet is a web platform or system where user will be able to
+                        maintain his wallet and he will be able to use his wallet money to recharge his
+                        mobile and can even transfer funds/wallet balance to other users. User will also be able
+                        to add money to wallet through debit card.</p>
+                    <h3>How do I Recharge?</h3>
+                    <ul>
+                        <li>Register/Login to your account.</li>
+                        <li>Click on Recharge;</li>
+                        <li>Enter the necessary details.</li>
+                        <li>Make payment.</li>
+                    </ul>
+                    <h3>What Do I Transfer Balance To Other User?</h3>
+                    <ul>
+                        <li>Login to your account.</li>
+                        <li>Click on Money Transfer</li>
+                        <li>Enter the mobile number(whom you would like to transfer).</li>
+                        <li>Enter the amount.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    {% include 'wallet/base_bottom.html' %}
+{% endblock %}

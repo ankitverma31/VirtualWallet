@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<title>{% block title %}Successful{% endblock %}</title>
+
+<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+{% include 'wallet/menu_base.html' %}
+    <div class="footer-top"  style="margin: 100px;">
+   <h6 style="font-size: 100px;color: #48cfc1;text-align: center"><i><img style="height: 100px;width: 100px;" src="../../static/wallet/images/success.png" alt=" " /></i>SUCCESS!</h6>
+    <h3 style="text-align: center">RECHARGE OF RS.{{ plan }} WAS SUCCESSFUL ON MOBILE NUMBER {{ mob }}</h3><br>
+     <h3 style="text-align: center"><strong>CONGRATULATIONS!</strong></h3>
+      <h3 style="text-align: center">Rs.20 Has Been Added To Your Wallet</h3>
+        <h3 style="text-align: center;">Recharge 5 More Times To Get Another Cashback Of Rs.20</h3>
+</div>
+        {% include 'wallet/base_bottom.html' %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<title>{% block title %}My Wallet{% endblock %}</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% include 'wallet/menu_base.html' %}
+<div class="footer-top"  style="margin: 100px;">
+<h3 id="form"><i><img src="../../static/wallet/images/userr.png" alt=" " /></i>&nbsp;&nbsp;{{ user.username.upper }}</h3>
+    <div class="row">
+{% if code_rec %}
+        {% if owners %}
+            {% for owner in owners %}
+                    <h3 style="text-align: center;font-weight: 500; font-size: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;Wallet Balance: Rs.{{ owner.balance }}</h3><br>
+
+                {% if debits %}
+                <a href="{% url 'wallet:add_balance' %}">
+                    <button style="margin-left: 43.5%;background-color: #48cfc1" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; ADD MONEY TO WALLET
+                    </button>
+                </a><br><br>
+                    <a href="{% url 'wallet:add_debit' %}">
+                    <button style="margin-left: 44.5%;background-color: #48cfc1" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; DEBIT CARD DETAILS
+                    </button>
+                </a>
+                    {% else %}
+                     <a href="{% url 'wallet:add_debit' %}">
+                    <button style="margin-left: 45%;background-color: #48cfc1" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; ADD DEBIT CARD
+                    </button>
+                </a>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+                                <h3 style="text-align: center;color: darkgray">ACCOUNT VERIFICATION SUCCESSFUL!</h3>
+                <h3 style="text-align: center">ADD CONTACT DETAILS TO GET Rs.50 WALLET BALANCE</h3>
+                <a href="{% url 'wallet:add_user_details' %}">
+                    <button style="margin-left: 45%;background-color: #48cfc1" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; ADD CONTACT DETAILS
+                    </button>
+                </a>
+            </div>
+        {% endif %}
+    {% else %}
+    <div class="col-sm-12">
+                <br>
+                <h3 style="text-align: center;color: darkgray">AN EMAIL WITH VERIFICATION CODE HAS BEEN SENT TO YOUR EMAIL ID</h3>
+                <h3 style="text-align: center">VERIFY YOUR ACCOUNT</h3>
+                <a href="{% url 'wallet:account_verify' %}">
+                    <button style="margin-left: 45%;background-color: #48cfc1" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; VERIFY ACCOUNT
+                    </button>
+                </a>
+            </div>
+    {% endif %}
+    </div>
+</div>
+{% include 'wallet/base_bottom.html' %}
+
+</body>
+</html>
+{% endblock %}

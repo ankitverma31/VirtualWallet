@@ -1,0 +1,96 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+<title>{% block title %}Recharge{% endblock %}</title>
+<script src="{% static 'wallet/script.js' %}"></script>
+{% block body %}
+{% include 'wallet/menu_base.html' %}
+    <div class="row">
+{% if code_rec %}
+    {% if owners %}
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 id="form"><i><img style="width: 40px;height: 46px;"  src="../../static/wallet/images/mobile.png" alt=" " /></i>Provide Recharge Details</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+{#                <div id="load" style="display:none;">Loading... Please wait</div>#}
+<div id="load" style="display: none" >
+	<div class="f_circleG" id="frotateG_01"></div>
+	<div class="f_circleG" id="frotateG_02"></div>
+	<div class="f_circleG" id="frotateG_03"></div>
+	<div class="f_circleG" id="frotateG_04"></div>
+	<div class="f_circleG" id="frotateG_05"></div>
+	<div class="f_circleG" id="frotateG_06"></div>
+	<div class="f_circleG" id="frotateG_07"></div>
+	<div class="f_circleG" id="frotateG_08"></div>
+</div>
+
+                    <form id="myform" class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data"  onsubmit="return ray.ajax()">
+                        {% csrf_token %}
+                        {% include 'wallet/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button id="anim" type="submit" class="btn btn-success">Recharge</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>RECHARGE IN SIMPLE STEPS</h2>
+                    <h3>Provide Operator Details</h3>
+                    <img style="width:50px;height:50px;" src="../../static/wallet/images/mobile.png" alt=" " />
+                    <h3>Provide Circle</h3>
+                    <img src="../../static/wallet/images/map.png" alt=" " />
+                     <h3>Make Payment</h3>
+                    <img src="../../static/wallet/images/logos.png" alt=" " />
+                </div>
+            </div>
+    {% else %}
+        <div class="footer-top"  style="margin: 100px;">
+        <h3 id="form"><i><img src="../../static/wallet/images/userr.png" alt=" " /></i>&nbsp;&nbsp;{{ user.username.upper }}</h3>
+
+<div class="row">
+     <div class="col-sm-12">
+                <br>
+         <h3 style="text-align: center;color: darkgray">ACCOUNT VERIFICATION SUCCESSFUL!</h3>
+                <h3 style="text-align: center">ADD CONTACT DETAILS TO GET Rs.50 WALLET BALANCE</h3>
+                <a href="{% url 'wallet:add_user_details' %}">
+                    <button style="margin-left: 45%;background-color: #48cfc1" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; Add Contact Details
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+        {% endif %}
+{% else %}
+        <div class="footer-top"  style="margin: 100px;">
+            <h3 id="form"><i><img src="../../static/wallet/images/userr.png" alt=" " /></i>&nbsp;&nbsp;{{ user.username.upper }}</h3>
+
+<div class="row">
+
+    <div class="col-sm-12">
+                <br>
+                        <h3 style="text-align: center;color: darkgray">AN EMAIL WITH VERIFICATION CODE HAS BEEN SENT TO YOUR EMAIL ID</h3>
+                <h3 style="text-align: center">VERIFY YOUR ACCOUNT</h3>
+                <a href="{% url 'wallet:account_verify' %}">
+                    <button style="margin-left: 45%;background-color: #48cfc1" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp; VERIFY ACCOUNT
+                    </button>
+                </a>
+            </div>
+    {% endif %}
+
+        </div>
+    </div>
+
+{% include 'wallet/base_bottom.html' %}
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<title>{% block title %}Contact Us{% endblock %}</title>
+
+<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+{% include 'wallet/unsigned_menu.html' %}
+    <div class="footer-top"  style="margin: 100px;">
+    <h3 id="form">CONTACT US</h3>
+    <div class="row" style="margin-left: 50px; margin-right: 50px;">
+        <p>Hello, you!</p>
+    <p>
+      Guess what? We hate going about our job, day in and day out, with no human contact. We love someone who'd like to talk to us or tell things to our face, someone who we can bounce ideas with or team up with, or someone who would just make friends with us!
+    </p>
+    <p>
+      If you want to put a face to the name Virtual Wallet, drop in and say hey at:<br/>
+      <i>Room No: 605, TE COMPS , Sardar Patel Institute Of Technology, Andheri West, Mumbai - 400 058.</i>
+    </p>
+    <p>
+      And if you're shy or busy and also, online friendly, you can get in touch on the number/address listed below:
+    </p>
+    <p>
+      <h4>Drop a mail!</h4>
+      <p>
+        Email: <a href="mailto:ankitverma3103@gmail.com">Ankit Verma</a> (for customer support queries), <a href="mailto:rnahata1997@gmail.com.com">Rohit Nahata</a> if you want to partner with us, <a href="mailto:mihir.varatha@gmail.com">Mihir Varatha</a> for career opportunities.
+      </p>
+
+
+
+        </div>
+        </div>
+        {% include 'wallet/base_bottom.html' %}
+{% endblock %}

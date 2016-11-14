@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Virtual Wallet</title>
+  <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'wallet/style.css' %}"/>
+
+  
+</head>
+<body>
+{% if request.user.is_authenticated %}
+<ul class='navi'>
+   <li class='navig'><a id="hd" href="{% url "wallet:index" %}"><i><img src="../../static/wallet/images/iconlogo.png" alt=" " /></i>VIRTUAL WALLET</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:recharge" %}">RECHARGE</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:my_wallet" %}">MY WALLET</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:transfer_balance" %}">TRANSFER</a></li>
+    <li class='navig'><a id="md" href=" {% url 'wallet:all_orders'  %}">TRANSACTIONS</a></li>
+    <li class='navig'><a id="md" href="{% url 'wallet:logout_user' %}">LOGOUT</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:my_wallet" %}"><i><img src="../../static/wallet/images/userr.png" alt=" " /></i>&nbsp;&nbsp;{{ user.username.upper }}</a></li>
+</ul>
+
+    {% else %}
+<ul class='navi'>
+   <li class='navig'><a id="hd" href="{% url "wallet:index" %}"><i><img src="../../static/wallet/images/iconlogo.png" alt=" " /></i>VIRTUAL WALLET</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:recharge" %}">RECHARGE</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:my_wallet" %}">MY WALLET</a></li>
+   <li class='navig'><a id="md" href="{% url "wallet:transfer_balance" %}">TRANSFER</a></li>
+   <li class='navig'><a id="md" href="{% url 'wallet:login_user' %}">LOGIN</a></li>
+    <li class='navig'><a id="md" href="{% url 'wallet:register_user' %}">REGISTER</a></li>
+        <li class='navig'><a id="md" href="{% url "wallet:my_wallet" %}"><i><img src="../../static/wallet/images/userr.png" alt=" " /></i>&nbsp;&nbsp;{{ user.username.upper }}</a></li>
+</ul>
+{% endif %}
+<div class="imagewrap">
+<img style="width:100%; height:600px;-webkit-filter: blur(1px);filter: blur(1.5);" id="image" src="../../static/wallet/images/bg.png">
+<h2 id="tagline">Get Free Coupons and Discounts With Every Recharge</h2>
+ <a href="{% url "wallet:recharge" %}" ><input type="button" class="button1" value="RECHARGE" /></a>
+ <a href="{% url "wallet:my_wallet" %}" ><input type="button" class="button2" value="WALLET" /></a>
+ <a href="{% url "wallet:transfer_balance" %}" ><input type="button" class="button3" value="TRANSFER MONEY" /></a>
+</div>
+<img style="width:100%;" id="image" src="../../static/wallet/images/rechrg.png">
+<img style="width:100%;" id="image" src="../../static/wallet/images/recharge.png">
+<img style="width:100%;" id="image" src="../../static/wallet/images/offers.png">
+
+<div class="footer-top">
+	<div class="container">
+			<div class="col-md-3">
+				<h3>MOBILE RECHARGES</h3>
+				<ul>
+                   <li><a href="{% url "wallet:recharge" %}">Reliance</a></li>
+                    <li><a href="{% url "wallet:recharge" %}">Aircel</a></li>
+                    <li><a href="{% url "wallet:recharge" %}">Vodafone</a></li>
+                   <li><a href="{% url "wallet:recharge" %}">Airtel</li>
+                   <li><a href="{% url "wallet:recharge" %}">Docomo</a></li>
+                   <li><a href="{% url "wallet:recharge" %}">MTS</a></li>
+                   <li><a href="{% url "wallet:recharge" %}">Idea</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h3>DTH RECHARGES</h3>
+				<ul>
+					<li>Airtel Digital TV Recharges</li>
+					<li>Dish TV Recharges</li>
+					<li>Tata Sky Recharges</li>
+					<li>Reliance Digital TV Recharges</li>
+					<li>Sun Direct Recharges</li>
+					<li>Videocon D2H Recharges</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h3>PAYMENT OPTIONS</h3>
+				<ul>
+					<li>Credit Cards</li>
+					<li>Debit Cards</li>
+					<li>Any Visa Debit Card (VBV)</li>
+					<li>Direct Bank Debits</li>
+					<li>Cash Cards</li>
+				</ul>
+			</div>
+        <div class="col-md-3">
+				<h3>VIRTUAL WALLET</h3>
+				<ul>
+                   <li><a href="{% url "wallet:aboutus" %}">About Us</a></li>
+                   <li><a href="{% url "wallet:contactus" %}">Contact Us</a></li>
+                   <li><a href="{% url "wallet:termsandconditions" %}">Terms & Conditions</a></li>
+                    <li><a href="{% url "wallet:developers" %}">Developers</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>	
+
+<div class="footer">
+	<div class="container">
+		<h2><a href="{% url 'wallet:index' %}">Virtual Wallet</a></h2>
+		<img src="../../static/wallet/images/logos.png" alt=" " />
+		<p>© 2016 Virtual Wallet. All Rights Reserved</p>
+	</div>
+</div>
+</body>
+</html>
+

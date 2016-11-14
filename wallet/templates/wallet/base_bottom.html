@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+<img style="width:100%;" id="image" src="../../static/wallet/images/recharge.png">
+<img style="width:100%;" id="image" src="../../static/wallet/images/rechrg.png">
+<div class="footer-top">
+	<div class="container">
+			<div class="col-md-3">
+				<h3>MOBILE RECHARGES</h3>
+				<ul>
+                   <li><a href="{% url "wallet:recharge" %}">Reliance</a></li>
+                    <li><a href="{% url "wallet:recharge" %}">Aircel</a></li>
+                    <li><a href="{% url "wallet:recharge" %}">Vodafone</a></li>
+                   <li><a href="{% url "wallet:recharge" %}">Airtel</li>
+                   <li><a href="{% url "wallet:recharge" %}">Docomo</a></li>
+                   <li><a href="{% url "wallet:recharge" %}">MTS</a></li>
+                   <li><a href="{% url "wallet:recharge" %}">Idea</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h3>DTH RECHARGES</h3>
+				<ul>
+					<li>Airtel Digital TV Recharges</li>
+					<li>Dish TV Recharges</li>
+					<li>Tata Sky Recharges</li>
+					<li>Reliance Digital TV Recharges</li>
+					<li>Sun Direct Recharges</li>
+					<li>Videocon D2H Recharges</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<h3>PAYMENT OPTIONS</h3>
+				<ul>
+					<li>Credit Cards</li>
+					<li>Debit Cards</li>
+					<li>Any Visa Debit Card (VBV)</li>
+					<li>Direct Bank Debits</li>
+					<li>Cash Cards</li>
+				</ul>
+			</div>
+        <div class="col-md-3">
+				<h3>VIRTUAL WALLET</h3>
+				<ul>
+                   <li><a href="{% url "wallet:aboutus" %}">About Us</a></li>
+                   <li><a href="{% url "wallet:contactus" %}">Contact Us</a></li>
+                   <li><a href="{% url "wallet:termsandconditions" %}">Terms & Conditions</a></li>
+                    <li><a href="{% url "wallet:developers" %}">Developers</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+<div class="footer">
+	<div class="container">
+		<h2><a href="{% url 'wallet:index' %}">Virtual Wallet</a></h2>
+		<img src="../../static/wallet/images/logos.png" alt=" " />
+		<p>© 2016 Virtual Wallet. All Rights Reserved</p>
+	</div>
+</div>
+{% endblock %}

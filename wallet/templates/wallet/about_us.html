@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<title>{% block title %}About Us{% endblock %}</title>
+
+<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+{% include 'wallet/menu_base.html' %}
+    <div class="footer-top"  style="margin: 100px;">
+    <h3 id="form">ABOUT US</h3>
+    <div class="row" style="margin-left: 50px; margin-right: 50px;">
+   <h3>What is Virtual Wallet?</h3>
+                    <p>Virtual wallet is a web platform or system where user will be able to
+                        maintain his wallet and he will be able to use his wallet money to recharge his
+                        mobile and can even transfer funds/wallet balance to other users. User will also be able
+                        to add money to wallet through debit card.</p>
+                    <h3>How do I Recharge?</h3>
+                    <ul>
+                        <li>Register/Login to your account.</li>
+                        <li>Click on Recharge;</li>
+                        <li>Enter the necessary details.</li>
+                        <li>Make payment.</li>
+                    </ul>
+                    <h3>What Do I Transfer Balance To Other User?</h3>
+                    <ul>
+                        <li>Login to your account.</li>
+                        <li>Click on Money Transfer</li>
+                        <li>Enter the mobile number(whom you would like to transfer).</li>
+                        <li>Enter the amount.</li>
+                    </ul>
+    <h3>We promise:</h3>
+        <ul>
+      <li>An easy and instant recharging process</li>
+      <li>A hassle-free online experience</li>
+      <li>A safe and secure payment process </li>
+      <li>Best discounts available in the market</li>
+      <li>Simple voucher redemption with no hidden costs or complex terms and conditions </li>
+      <li>And a totally satisfied you, who'll want to come back to us again and again </li>
+    </ul>
+    <p>After all, you know it's a smart thing to do! </p>
+        </div>
+        </div>
+        {% include 'wallet/base_bottom.html' %}
+{% endblock %}

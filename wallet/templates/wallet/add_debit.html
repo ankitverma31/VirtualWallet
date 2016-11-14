@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+<title>{% block title %}Debit Card{% endblock %}</title>
+{% block body %}
+{% include 'wallet/menu_base.html' %}
+
+{% if debits %}
+                <div class="footer-top"  style="margin: 100px;">
+
+   <h3 id="form"><i><img src="../../static/wallet/images/card.png" alt=" " /></i>&nbsp;&nbsp;&nbsp;DEBIT CARD DETAILS:</h3>
+    <div class="row">
+            {% for debit in debits %}
+
+                    <h3 style="text-align: center;font-weight: 500; font-size: 45px;">&nbsp;&nbsp;&nbsp;&nbsp;CARD NO: {{ debit.debitNumber }}</h3>
+                    <h3 style="text-align: center;font-weight: 500; font-size: 45px;">&nbsp;&nbsp;&nbsp;&nbsp;CARD BALANCE: Rs.{{ debit.dbalance }}</h3><br>
+            {% endfor %}
+        </div>
+    </div>
+        {% else %}
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 id="form">Add Debit Card Details&nbsp;&nbsp;<i><img src="../../static/wallet/images/logos.png" alt=" " /></i></h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'wallet/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>WITH VIRTUAL WALLET</h2>
+                    <h3>Your Details Are Secured</h3>
+                    <img style="width:50px;height:50px;" src="../../static/wallet/images/mobile.png" alt=" " />
+                    <h3>Anytime, Anywhere Recharge and Transfer </h3>
+                    <img src="../../static/wallet/images/map.png" alt=" " />
+                     <h3>Secured Payments</h3>
+                    <img src="../../static/wallet/images/logos.png" alt=" " />
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% include 'wallet/base_bottom.html' %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<title>{% block title %}Unsuccessful{% endblock %}</title>
+
+<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'wallet/style.css' %}">
+{% block body %}
+{% include 'wallet/menu_base.html' %}
+                <div class="footer-top"  style="margin: 100px;">
+
+   <h6 style="font-size: 100px;color: #48cfc1;text-align: center"><i><img style="height: 100px;width: 100px;" src="../../static/wallet/images/unsuccess.png" alt=" " /></i>UNSUCCESSFUL!</h6>
+        <h3 style="text-align: center">INSUFFICIENT DEBIT CARD BALANCE</h3>
+    <a href="{% url 'wallet:add_debit' %}">
+                    <button style="margin-left: 43.5%;background-color: #48cfc1" type="button" class="btn btn-success">
+                        &nbsp;DEBIT CARD DETAILS
+                    </button>
+                </a>
+                    </div>
+{% include 'wallet/base_bottom.html' %}
+{% endblock %}
