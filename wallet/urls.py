@@ -5,6 +5,7 @@ from django.conf.urls import patterns, url
 app_name = 'wallet'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^under_construction$', views.under_construction, name='under_construction'),
     url(r'^login_user$', views.login_user, name='login_user'),
     url(r'^register_user$', views.register_user, name='register_user'),
     url(r'^add_user_details/$', views.add_user_details, name='add_user_details'),
