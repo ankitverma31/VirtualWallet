@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<head>
+    <script type="text/javascript">
+  <!--
+  if (screen.width <= 800) {
+    window.location = "{% url "wallet:under_construction" %}";
+  }
+  //-->
+</script>
   <title>Virtual Wallet</title>
   <meta charset="utf-8">
     {% load staticfiles %}
