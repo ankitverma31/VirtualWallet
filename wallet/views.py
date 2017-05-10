@@ -23,6 +23,9 @@ def ConfirmationAccountMail(request,emailto,usrname,passwrd):
 def index(request):
     return render_to_response('wallet/index.html', locals(), context_instance=RequestContext(request))
 
+def under_construction(request):
+    return render_to_response('wallet/under_construction.html', locals(), context_instance=RequestContext(request))
+
 
 def developers(request):
     return render_to_response('wallet/developers.html', locals(), context_instance=RequestContext(request))
